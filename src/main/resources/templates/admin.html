@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Panel</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -70,7 +70,7 @@
 <!-- Add User Modal -->
 <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content p-3">
             <div class="modal-header">
                 <h5 class="modal-title">Add New User</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -79,23 +79,23 @@
                 <form id="addUserForm">
                     <div class="mb-3">
                         <label class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="firstName" required>
+                        <input type="text" class="form-control" id="firstName" required />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" required>
+                        <input type="text" class="form-control" id="lastName" required />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Age</label>
-                        <input type="number" class="form-control" id="age" required>
+                        <input type="number" class="form-control" id="age" required />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" required>
+                        <input type="email" class="form-control" id="email" required />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" required>
+                        <input type="password" class="form-control" id="password" required />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Role</label>
@@ -116,33 +116,33 @@
 <!-- Edit User Modal -->
 <div class="modal fade" id="editUserModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content p-3">
             <div class="modal-header">
                 <h5 class="modal-title">Edit User</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="editUserForm">
-                    <input type="hidden" id="editUserId">
+                    <input type="hidden" id="editUserId" />
                     <div class="mb-3">
                         <label class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="editFirstName" required>
+                        <input type="text" class="form-control" id="editFirstName" required />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="editLastName" required>
+                        <input type="text" class="form-control" id="editLastName" required />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Age</label>
-                        <input type="number" class="form-control" id="editAge" required>
+                        <input type="number" class="form-control" id="editAge" required />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control" id="editEmail" required>
+                        <input type="email" class="form-control" id="editEmail" required />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <input type="password" class="form-control" id="editPassword" required>
+                        <input type="password" class="form-control" id="editPassword" required />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Role</label>
@@ -161,10 +161,37 @@
     </div>
 </div>
 
+<!-- Lower Add User Form -->
+<div class="container mt-4">
+    <h4>Add New User (Lower Form)</h4>
+    <form id="newUserForm">
+        <div class="mb-3">
+            <label for="newUsername" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="newUsername" required>
+        </div>
+        <div class="mb-3">
+            <label for="newEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="newEmail" required>
+        </div>
+        <div class="mb-3">
+            <label for="newPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="newPassword" required>
+        </div>
+        <div class="mb-3">
+            <label for="newRoles" class="form-label">Role</label>
+            <select class="form-select" id="newRoles" multiple>
+                <option value="USER">USER</option>
+                <option value="ADMIN">ADMIN</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Add New User</button>
+    </form>
+</div>
+
 <!-- Delete User Modal -->
 <div class="modal fade" id="deleteUserModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content p-3">
             <div class="modal-header">
                 <h5 class="modal-title">Delete User</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -188,59 +215,68 @@
     </div>
 </div>
 
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-    let usersTable = document.getElementById('usersTable').getElementsByTagName('tbody')[0];
-    let nextId = 3; // следующий ID для нового пользователя
+    const usersTable = document.getElementById('usersTable').getElementsByTagName('tbody')[0];
+    let deleteId = null;
 
-    // Add User
-    document.getElementById('addUserForm').addEventListener('submit', function(e){
-        e.preventDefault();
-        let firstName = document.getElementById('firstName').value;
-        let lastName = document.getElementById('lastName').value;
-        let age = document.getElementById('age').value;
-        let email = document.getElementById('email').value;
-        let password = document.getElementById('password').value;
-        let role = document.getElementById('role').value;
+    // ==================== Add User ====================
+    function addUser() {
+        const firstName = document.getElementById('newUsername').value;
+        const email = document.getElementById('newEmail').value;
+        const password = document.getElementById('newPassword').value;
+        const roleSelect = document.getElementById('newRoles');
+        const roles = Array.from(roleSelect.selectedOptions).map(o => o.value);
 
-        let row = usersTable.insertRow();
+        // Найти максимальный ID в таблице и добавить 1
+        let maxId = 0;
+        for (let row of usersTable.rows) {
+            const id = parseInt(row.cells[0].innerText);
+            if (id > maxId) maxId = id;
+        }
+        const nextId = maxId + 1;
+
+        const row = usersTable.insertRow();
         row.innerHTML = `
-    <td>${nextId}</td>
-    <td>${firstName}</td>
-    <td>${lastName}</td>
-    <td>${age}</td>
-    <td>${email}</td>
-    <td>${role}</td>
-    <td>
-      <button class="btn btn-primary btn-sm editBtn">Edit</button>
-      <button class="btn btn-danger btn-sm deleteBtn">Delete</button>
-    </td>
-  `;
-        nextId++;
-        this.reset();
-        bootstrap.Modal.getInstance(document.getElementById('addUserModal')).hide();
-    });
+            <td>${nextId}</td>
+            <td>${firstName}</td>
+            <td>-</td>
+            <td>-</td>
+            <td>${email}</td>
+            <td>${roles.join(', ')}</td>
+            <td>
+                <button class="btn btn-primary btn-sm editBtn">Edit</button>
+                <button class="btn btn-danger btn-sm deleteBtn">Delete</button>
+            </td>
+        `;
 
-    // Edit User
-    document.addEventListener('click', function(e){
-        if(e.target.classList.contains('editBtn')){
-            let row = e.target.closest('tr');
+        // Сброс формы
+        document.getElementById('newUserForm').reset();
+    }
+
+    // ==================== Edit User ====================
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('editBtn')) {
+            const row = e.target.closest('tr');
             document.getElementById('editUserId').value = row.cells[0].innerText;
             document.getElementById('editFirstName').value = row.cells[1].innerText;
             document.getElementById('editLastName').value = row.cells[2].innerText;
             document.getElementById('editAge').value = row.cells[3].innerText;
             document.getElementById('editEmail').value = row.cells[4].innerText;
-            document.getElementById('editPassword').value = ''; // password скрыт
+            document.getElementById('editPassword').value = '';
             document.getElementById('editRole').value = row.cells[5].innerText;
+
             new bootstrap.Modal(document.getElementById('editUserModal')).show();
         }
     });
 
-    document.getElementById('editUserForm').addEventListener('submit', function(e){
+    document.getElementById('editUserForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        let id = document.getElementById('editUserId').value;
-        for(let row of usersTable.rows){
-            if(row.cells[0].innerText === id){
+        const id = document.getElementById('editUserId').value;
+        for (let row of usersTable.rows) {
+            if (row.cells[0].innerText === id) {
                 row.cells[1].innerText = document.getElementById('editFirstName').value;
                 row.cells[2].innerText = document.getElementById('editLastName').value;
                 row.cells[3].innerText = document.getElementById('editAge').value;
@@ -252,30 +288,37 @@
         bootstrap.Modal.getInstance(document.getElementById('editUserModal')).hide();
     });
 
-    // Delete User
-    let deleteId;
-    document.addEventListener('click', function(e){
-        if(e.target.classList.contains('deleteBtn')){
-            let row = e.target.closest('tr');
+    // ==================== Delete User ====================
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('deleteBtn')) {
+            const row = e.target.closest('tr');
             deleteId = row.cells[0].innerText;
+
             document.getElementById('deleteId').innerText = row.cells[0].innerText;
             document.getElementById('deleteFirstName').innerText = row.cells[1].innerText;
             document.getElementById('deleteLastName').innerText = row.cells[2].innerText;
             document.getElementById('deleteAge').innerText = row.cells[3].innerText;
             document.getElementById('deleteEmail').innerText = row.cells[4].innerText;
             document.getElementById('deleteRole').innerText = row.cells[5].innerText;
+
             new bootstrap.Modal(document.getElementById('deleteUserModal')).show();
         }
     });
 
-    document.getElementById('confirmDeleteBtn').addEventListener('click', function(){
-        for(let i=0; i<usersTable.rows.length; i++){
-            if(usersTable.rows[i].cells[0].innerText === deleteId){
+    document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+        for (let i = 0; i < usersTable.rows.length; i++) {
+            if (usersTable.rows[i].cells[0].innerText === deleteId) {
                 usersTable.deleteRow(i);
                 break;
             }
         }
         bootstrap.Modal.getInstance(document.getElementById('deleteUserModal')).hide();
+    });
+
+    // ==================== Lower Form ====================
+    document.getElementById('newUserForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        addUser();
     });
 </script>
 </body>
