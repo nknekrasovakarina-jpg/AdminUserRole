@@ -11,6 +11,7 @@ public class Role implements GrantedAuthority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "role_name")  // привязка к столбцу в БД
     private String name; // ROLE_USER, ROLE_ADMIN
 
     public Role() {}
